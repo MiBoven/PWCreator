@@ -1,5 +1,6 @@
 import secrets
 import string
+import pyperclip
 
 password_length_default = 18
 
@@ -20,7 +21,10 @@ def generate_password():
         rnd_char = secrets.choice(chars)
         password_items.append(rnd_char)
 
-    return "".join(password_items)
+    password = "".join(password_items)
 
+    # Copy PW to Clipboard
+    pyperclip.copy(password)
+    return password
 
 print(generate_password())
